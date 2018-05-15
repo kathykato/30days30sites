@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Lato');
+@import "css/reset.scss";
+@import "css/12columns.scss";
+
+$white: #fff;
+$black: #222;
+$blue: #2e4c72;
+$gray: #959182;
+$highlight: #ea8478;
+$footer: #eaebea;
+$border: #fff2ec;
+$button: #e3988c;
+$button-border: #e4e1e1;
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  &::before, &::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: $gray;
+  background: $white;
+  text-rendering: optimizeLegibility;
+  background: $white;
+  border-left: 0.625rem solid $border;
+  border-right: 0.625rem solid $border;
+  height: 100vh;
+  &::before, &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    height: 0.625rem;
+    background: $border;
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+}
+
+.preload {
+  opacity: 0;
+  -webkit-transition: all 1s ease 0.5s;
+  -o-transition: all 1s ease 0.5s;
+  transition: all 1s ease 0.5s;
+  &.visible {
+    opacity: 1;
+  }
+}
+
+a {
+  color: $white;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.1;
+}
+
+h1 {
+  color: $blue;
+  font-size: 3rem;
+  margin: 1rem 0 1.45rem 0;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: $black;
+  text-transform: uppercase;
+}
+
+header {
+  background-image: url('https://source.unsplash.com/zNHOIzjJiyA');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.center {
+  height: 100vh;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.credit {
+  position: absolute;
+  display: block;
+  margin: 0 0 1rem 0;
+  bottom: 0;
+  color: $white;
+}
+
+main {
+  background: $white;
+}
+
+.rsvp-button {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: $white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  margin: 1.625rem 0 0 0;
+  background: $button;
+  border: 0.125rem solid $button;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: $white;
+    background: $black;
+    border-color: $black;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  body, .rsvp-button {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.125rem;
+  }
+  
+  h2 {
+    font-size: 0.85rem;
+  }
+
+  header {
+    background-position: 100% 25%;
+    height: 40vh;
+  }
+
+  .center, main {
+    height: 60vh;
+  }
+
+  .credit {
+    display: none;
+  }
+}
