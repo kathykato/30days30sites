@@ -1,6 +1,5 @@
+@import '12columns.scss';
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Lato');
-@import "css/reset.scss";
-@import "css/12columns.scss";
 
 $white: #fff;
 $black: #222;
@@ -13,12 +12,23 @@ $button: #e3988c;
 $button-border: #e4e1e1;
 
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   &::before, &::after {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, figure, figcaption, footer, header, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+figcaption, figure, footer, header, nav, section {
+  display: block;
 }
 
 body {
@@ -50,8 +60,6 @@ body {
 
 .preload {
   opacity: 0;
-  -webkit-transition: all 1s ease 0.5s;
-  -o-transition: all 1s ease 0.5s;
   transition: all 1s ease 0.5s;
   &.visible {
     opacity: 1;
@@ -91,13 +99,8 @@ header {
 .center {
   height: 100vh;
   justify-items: center;
-  -ms-flex-line-pack: center;
   align-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
@@ -125,8 +128,6 @@ main {
   margin: 1.625rem 0 0 0;
   background: $button;
   border: 0.125rem solid $button;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   &:hover {
     color: $white;

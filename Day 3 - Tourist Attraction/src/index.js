@@ -1,3 +1,5 @@
+import style from "./scss/main.scss";
+
 const items = document.querySelectorAll('.slider-item');
 const itemCount = items.length;
 const nextItem = document.querySelector('.next');

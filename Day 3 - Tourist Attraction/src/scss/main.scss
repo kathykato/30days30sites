@@ -1,6 +1,5 @@
+@import '12columns.scss';
 @import url('https://fonts.googleapis.com/css?family=Barlow:400,500,700');
-@import "css/reset.scss";
-@import "css/12columns.scss";
 
 $white: #fff;
 $black: #232323;
@@ -14,6 +13,19 @@ $red: #e83f43;
   }
 }
 
+body, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, figure, figcaption, footer, header, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+figcaption, figure, footer, header, nav, section {
+  display: block;
+}
+
 body {
   font-family: 'Barlow', sans-serif;
   font-size: 1.125rem;
@@ -23,6 +35,13 @@ body {
   background: $white;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 71.25rem;
+  width: 100%;
 }
 
 a {
