@@ -7,4 +7,6 @@ Day 3: Tourist Attraction ([view](https://codepen.io/kathykato/full/MqYVOq))
 
 Day 4: Product ([view](https://codepen.io/kathykato/full/gdvjax))
 
-Day 5: Restaurant Menu
+Day 5: Restaurant Menu ([view](https://codepen.io/kathykato/full/KGVzVg))
+
+Day 6: Book / Author
