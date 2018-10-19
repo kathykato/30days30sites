@@ -1,0 +1,207 @@
+@import '12columns.scss';
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,500|Roboto:400,700');
+
+$white: #fff;
+$gray: #a5a5a5;
+$black: #322c2c;
+$text: #8e8e8e;
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  background: $white;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: 'EB Garamond', serif;
+  color: $black;
+  line-height: 1.1;
+}
+
+h2, h3 {
+  color: $black;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.325rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin: 0 0 2rem;
+}
+
+p {
+  margin: 0 0 1.5rem;
+  &:nth-child(4) {
+    margin: 0;
+  }
+  &.copyright {
+    margin: 1.5rem 0;
+  }
+}
+
+a {
+  color: $gray;
+  text-decoration: none;
+  &:hover {
+    color: $black;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  text-align: center;
+  width: 40rem;
+  height: auto;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+.intro {
+  margin: 1rem 0;
+  padding: 0;
+  width: 100%;
+}
+
+nav {
+  position: relative;
+  padding: 1.25rem 0 1.25rem 0;
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    li {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      margin: 0 1.5rem 0 0;
+      &:nth-child(3) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+nav .grid {
+  > [class*="column-"] {
+    padding: 0.25rem 1rem;
+  }
+}
+
+#logo {
+  color: $black;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  width: 100%;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+.grid {
+  > [class*="column-"] {
+    padding: 1rem;
+  }
+}
+
+.section-heading {
+  transform: rotate(0) translateX(0);
+}
+
+img {
+	width: 100%;
+  height: 100%;
+	object-fit: cover;
+}
+
+footer {
+  text-align: center;
+}
+
+@media (min-width: $md) {
+  body {
+    font-size: 1.125rem;
+  }
+  
+  nav {
+    padding: 2.5rem 0 2.5rem 0;
+    ul {
+      justify-content: flex-end;
+    }
+  }
+  
+  h1 {
+    font-size: 3.25rem;
+  }
+  
+  h2 {
+    font-size: 2.75rem;
+  }
+
+  h3 {
+    font-size: 2.25rem;
+  }
+  
+  img {
+    height: 40rem;
+  }
+  
+  .section-heading {
+    position: absolute;
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-100%);
+  }
+  
+  .intro {
+    padding: 1rem;
+  }
+  
+  blockquote {
+    width: 30rem;
+    height: 40rem;
+  }
+}
