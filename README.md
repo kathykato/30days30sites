@@ -9,4 +9,4 @@ Day 4: Product ([view](https://codepen.io/kathykato/full/gdvjax))
 
 Day 5: Restaurant Menu ([view](https://codepen.io/kathykato/full/KGVzVg))
 
-Day 6: Book / Author
+Day 6: Book / Author ([view](https://codepen.io/kathykato/full/VExpeq))
