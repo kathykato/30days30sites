@@ -1,0 +1,252 @@
+@import '12columns.scss';
+@import "~aos/dist/aos.css";
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:600|Lato:400,700,900');
+
+$white: #fff;
+$gray: #969696;
+$black: #000;
+$text: #8e8e8e;
+$gold: #948a64;
+$light-gold: lighten($gold,8%);
+$nav-gradient: rgba(255,255,255,0), rgba(0,0,0,0.5);
+$text-gradient: rgba(255,255,255,0.5), rgba(148,138,100,0.25);
+$header-gradient: rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 50%, $black 100%;
+
+@mixin pseudo ($content: '') {
+  position: absolute;
+  content: $content;
+}
+
+@mixin gradient($direction, $colors) {
+  background: linear-gradient($direction, $colors);  
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  background: $black;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+}
+
+h2, h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  color: $gold;
+  text-transform: uppercase;
+}
+
+h1 {
+  @include gradient(180deg, $text-gradient);
+  color: transparent;
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+  background-clip: border-box;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 1rem 0 1.5rem;
+}
+
+p {
+  margin: 0 0 1.5rem;
+  text-align: left;
+  &.copyright {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+}
+
+a {
+  display: inline-block;
+  color: $gray;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  &:hover {
+    color: $white;
+  }
+  &.get-tickets {
+    color: $black;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    background: $gold;
+    &:hover {
+      background: $light-gold;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+nav {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5.5rem;
+  padding: 1rem 0;
+  &::before {
+    @include pseudo;
+    @include gradient(0deg, $nav-gradient);
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 10rem;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.125rem;
+      text-transform: uppercase;
+      margin: 0 1.5rem 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  width: 100%;
+}
+
+header {
+  background: linear-gradient(180deg, $header-gradient), url('https://source.unsplash.com/1L71sPT5XKc');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+footer section {
+  padding: 2rem 0;
+}
+
+.grid {
+  > [class*="column-"] {
+    padding: 1rem;
+  }
+  &#gallery > [class*="column-"] {
+    padding: 0;
+    .img-container {
+      width: 100%;
+      height: 45rem;
+    }
+  }
+}
+
+.text-center {
+  margin: auto;
+  text-align: center;
+  width: 45rem;
+  max-width: 100%;
+}
+
+img {
+	width: 100%;
+  height: 100%;
+	object-fit: cover;
+}
+
+[data-aos="blur"] {
+  filter: blur(1rem);
+  opacity: 0;
+  transition-property: filter, opacity;
+  &.aos-animate {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: $sm) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  nav ul li {
+    font-size: 0.875rem;
+  }
+  
+  h1 {
+    font-size: 6rem;
+  }
+  
+  h2 {
+    font-size: 3.625rem;
+  }
+
+  h3 {
+    font-size: 1.325rem;
+    letter-spacing: 0.1875rem;
+  }
+
+  a.get-tickets {
+    padding: 1.5rem 2rem;
+  }
+}
