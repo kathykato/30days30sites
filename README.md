@@ -11,4 +11,4 @@ Day 5: Restaurant Menu ([view](https://codepen.io/kathykato/full/KGVzVg))
 
 Day 6: Book / Author ([view](https://codepen.io/kathykato/full/VExpeq))
 
-Day 7: Movie
+Day 7: Movie (([view](https://codepen.io/kathykato/full/MzzRve))
