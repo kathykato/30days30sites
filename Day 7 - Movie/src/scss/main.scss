@@ -9,7 +9,7 @@ $black: #000;
 $text: #8e8e8e;
 $gold: #948a64;
 $light-gold: lighten($gold,8%);
-$nav-gradient: rgba(255,255,255,0), rgba(0,0,0,0.5);
+$nav-gradient: transparent, rgba(0,0,0,0.5);
 $text-gradient: rgba(255,255,255,0.5), rgba(148,138,100,0.25);
 $header-gradient: rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 50%, $black 100%;
 
@@ -165,7 +165,7 @@ header {
   background-size: cover;
 }
 
-.hero {
+#hero {
   display: flex;
   flex-direction: column;
   justify-items: center;
