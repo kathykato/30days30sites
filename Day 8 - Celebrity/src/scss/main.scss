@@ -170,12 +170,8 @@ img {
   object-fit: cover;
 }
 
-.main-img {
-  height: 15vh;
-}
-
-#about img {
-  height: 20vh;
+.main-img, #about img {
+  height: 25vh;
 }
 
 #about.grid > [class*="column-"]:first-child {
