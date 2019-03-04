@@ -15,4 +15,4 @@ Day 7: Movie ([view](https://codepen.io/kathykato/full/MzzRve))
 
 Day 8: Celebrity ([view](https://codepen.io/kathykato/full/gQJxjR))
 
-Day 9: Children's Toy / Game
+Day 9: Children's Toy / Game ([view](https://codepen.io/kathykato/full/WmGpjN))
