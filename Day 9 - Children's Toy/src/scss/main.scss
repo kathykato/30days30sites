@@ -1,0 +1,340 @@
+@import '12columns.scss';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900|Open+Sans:400,600');
+
+$white: #fff;
+$lightgray: #cfcfcf;
+$gray: #999;
+$orange: #ff714c;
+$black: #322e40;
+$bg: #1e1e1e;
+$text: #686574;
+
+@mixin pseudo ($content: '') {
+  position: absolute;
+  content: $content;
+}
+
+@mixin transition($property: all, $duration: 0.65s, $ease: cubic-bezier(0.165,0.84,0.44,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  background: $white;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.1;
+  color: $black;
+}
+
+h1 {
+  position: relative;
+  margin: 0 0 1rem;
+  font-size: 3.125rem;
+  font-weight: 700;
+  color: $black;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 1rem 0 1.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1.5rem;
+  &.lead {
+    font-size: 1.125rem;
+    margin: 0 0 2rem;
+  }
+}
+
+a {
+  @include transition(color, 0.2s, cubic-bezier(0.25,0.46,0.45,0.94));
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+header {
+  padding: 15rem 0 10rem;
+}
+
+nav {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 0;
+  width: 100%;
+  background: $white;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.05);
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.25rem 0;
+    li {
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.375rem;
+      margin: 0 1.5rem 0 0;
+      &:last-child {
+      }
+    }
+    a {
+      color: $gray;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}
+
+nav ul {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: none;
+  width: 100%;
+  left: 0;
+  padding: 1rem 0 1.5rem;
+  background: $white;
+  text-align: center;
+  &.active {
+    display: flex;
+  }
+  li {
+    margin: 0.5rem 0;
+  }
+}
+
+.toggle-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toggle-nav {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0.325rem 0;
+  color: $gray;
+  .fa-bars {
+    margin: 0 0 0 0.5rem;
+  }
+  i {
+    font-size: 1.5rem;
+    line-height: 0.5;
+    margin: 0 0 0 0.5rem;
+  }
+}
+
+nav .grid {
+  > [class*="column-"] {
+    padding: 0 1rem;
+  }
+}
+
+#logo {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+  color: $black;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  width: 100%;
+}
+
+header section {
+  padding: 0;
+}
+
+main::before {
+  @include pseudo();
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 150' preserveAspectRatio='none' style='height: 100%25; width: 100%25;'%3E%3Cpath d='M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z' style='stroke: none; fill: %23f8f4ed;'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.grid {
+  > [class*="column-"] {
+    padding: 1rem;
+  }
+}
+
+section {
+  padding: 5rem 0;
+}
+
+img {
+  display: block;
+	width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  @include transition(background, 0.2s, cubic-bezier(0.25,0.46,0.45,0.94));
+  position: relative;
+  display: inline-block;
+  color: $white;
+  border: none;
+  border-radius: 2rem;
+  outline: 0;
+  padding: 1.125rem 3rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.0625rem;
+  background: $orange;
+  &:hover {
+    background: darken($orange, 5%);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+figure {
+  position: relative;
+  display: block;
+  margin: 0;
+  > .img-container {
+    height: 20rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    img {
+      @include transition(transform, 0.15s, cubic-bezier(0.25,0.46,0.45,0.94));
+      transform: scale(1);
+    }
+  }
+}
+
+a:hover .img-container img {
+  transform: scale(1.08);
+}
+
+a:hover figcaption h3 {
+  color: $orange;
+}
+
+a figcaption > * {
+  @include transition(color, 0.2s, cubic-bezier(0.25,0.46,0.45,0.94));
+}
+
+footer {
+  text-align: center;
+  section {
+    padding: 2rem 0;
+    border-top: 1px solid $lightgray;
+  }
+  .footer-nav li {
+    display: inline-block;
+    a:hover {
+      color: $orange;
+    }
+  }
+}
+
+@media (min-width: $sm) {
+  nav {
+    padding: 1.5rem 0;
+    ul {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  body {
+    font-size: 1.125rem;
+  }
+  
+  header {
+    background: #f8f4ed url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toys.png) no-repeat center top/auto;
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    margin: 0 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.75rem;
+  }
+
+  h3 {
+    font-size: 1.85rem;
+  }
+
+  p.lead {
+    font-size: 1.25rem;
+    margin: 0 0 2.5rem;
+  }
+  
+  .toggle-nav {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    ul {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      justify-content: flex-end;
+      padding: 0;
+      li {
+        margin: 0 1.5rem 0 0;
+      }
+    }
+  }
+}
