@@ -38,6 +38,17 @@ function toggleNavigation(){
   this.nextElementSibling.classList.toggle('active');
 }
 
+function keyPress(e) {
+  e = e || window.event;
+  
+  if (e.keyCode == '37') {
+    showPreviousItem();
+  } else if (e.keyCode == '39') {
+    showNextItem();
+  }
+}
+
 nextItem.addEventListener('click', showNextItem);
 previousItem.addEventListener('click', showPreviousItem);
+document.addEventListener('keydown', keyPress);
 navItem.addEventListener('click', toggleNavigation);
