@@ -1,0 +1,272 @@
+@import '12columns.scss';
+@import "../../node_modules/splitting/dist/splitting.css";
+
+@import url('https://fonts.googleapis.com/css?family=Spectral:700|Rubik:400,500');
+
+$white: #fff;
+$black: #282828;
+$bg: #1b1b1d;
+
+@mixin pseudo ($content: '') {
+  position: absolute;
+  content: $content;
+}
+
+@mixin transition($property: all, $duration: 0.65s, $ease: cubic-bezier(0.165,0.84,0.44,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: $white;
+  background: $bg;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Spectral', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: $white;
+  line-height: 1.1;
+}
+
+a {
+  @include transition(opacity, 0.2s, cubic-bezier(0.25,0.46,0.45,0.94));
+  color: $white;
+  opacity: 0.55;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    li {
+      font-size: 0.875rem;
+      margin: 0 1.5rem 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+nav .grid {
+  > [class*="column-"] {
+    padding: 0.25rem 1rem;
+  }
+}
+
+#logo {
+  color: $white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 90rem;
+  width: 100%;
+}
+
+.grid > [class*="column-"] {
+    padding: 0;
+}
+
+img {
+  display: block;
+	width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.text-holder {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+main img {
+  height: calc(100vh - 12.5rem);
+  margin: auto;
+  width: auto;
+}
+
+nav, .controls {
+  padding: 1.325rem 0;
+}
+
+.controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 10rem;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0.0625rem solid $white;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  span {
+    display: inline-block;
+    position: relative;
+  }
+}
+
+.previous, .next {
+  color: $white;
+  opacity: 0.65;
+  transition: opacity 0.25s cubic-bezier(0.19,1,0.22,1);
+}
+
+.previous:hover, .next:hover {
+  opacity: 1;
+}
+
+.previous:hover span {
+  animation: iconRight 0.35s cubic-bezier(0.19,1,0.22,1) forwards reverse;
+}
+
+.next:hover span {
+  animation: iconRight 0.35s cubic-bezier(0.19,1,0.22,1) forwards;
+}
+
+.slider {
+  overflow: hidden;
+  .slider-item {
+    display: none;
+    margin: 0;
+    &.active {
+      display: block;
+      animation: imageEnter 0.85s both;
+    }
+    img {
+      filter: brightness(85%);
+    }
+  }
+}
+
+.title-enter {
+  z-index: 1;
+}
+
+.title-enter .char {
+  animation: slideUp 0.6s cubic-bezier(0.5,0,0.1,1) both;
+  animation-delay: calc(0.5s * var(--char-percent));
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0) skewY(-10deg);
+  }
+}
+
+@keyframes imageEnter {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes iconLeft {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  51% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+}
+
+@keyframes iconRight {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  51% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+}
+
+@media (min-width: $sm) {
+  nav {
+    ul {
+      justify-content: flex-end;
+    }
+  }
+  
+  nav, .controls {
+    padding: 1.85rem 0;
+  }
+}
+
+@media (min-width: $md) {
+  body {
+    font-size: 1.125rem;
+  }
+  
+  h1 {
+    font-size: 6.25rem;
+  }
+}
