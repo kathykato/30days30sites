@@ -17,4 +17,4 @@ Day 8: Celebrity ([view](https://codepen.io/kathykato/full/gQJxjR))
 
 Day 9: Children's Toy / Game ([view](https://codepen.io/kathykato/full/WmGpjN))
 
-Day 10: Photographer
+Day 10: Photographer ([view](https://codepen.io/kathykato/full/MxpPve))
