@@ -8,12 +8,30 @@ $red: #e83f43;
 
 * {
   box-sizing: border-box;
-  &::before, &::after {
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }
 
-body, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, figure, figcaption, footer, header, nav, section {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ul,
+li,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +40,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, figure, figcaption, footer, hea
   vertical-align: baseline;
 }
 
-figcaption, figure, footer, header, nav, section {
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
   display: block;
 }
 
@@ -77,9 +100,9 @@ nav {
 }
 
 img {
-	width: 100%;
+  width: 100%;
   height: 43vh;
-	object-fit: cover;
+  object-fit: cover;
 }
 
 .vertical {
@@ -143,6 +166,8 @@ button {
   font-size: 100%;
   font: inherit;
   font-size: inherit;
+  width: 55px;
+  height: 55px;
 }
 
 .controls {
@@ -153,29 +178,60 @@ button {
   padding: 0.25rem 0 0.25rem 0;
   .previous {
     border: 1px solid $black;
-    &:hover i {
-      transform: scale(1.5);
-    }
   }
   .next {
     border-top: 1px solid $black;
     border-right: 1px solid $black;
     border-bottom: 1px solid $black;
-    &:hover i {
-      transform: scale(1.5);
+  }
+  .icon {
+    position: relative;
+    margin: auto;
+    width: 20px;
+    height: 1px;
+    background-color: currentColor;
+    &.arrow-left {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: -4px;
+        width: 9px;
+        height: 9px;
+        border-top: solid 1px currentColor;
+        border-right: solid 1px currentColor;
+        transform: rotate(-135deg);
+      }
+    }
+    &.arrow-right {
+      &::before {
+        content: '';
+        position: absolute;
+        right: 1px;
+        top: -4px;
+        width: 9px;
+        height: 9px;
+        border-top: solid 1px currentColor;
+        border-right: solid 1px currentColor;
+        transform: rotate(45deg);
+      }
     }
   }
 }
 
-.previous, .next {
+.previous,
+.next {
   display: flex;
   align-content: center;
   justify-content: center;
   flex-basis: 15%;
   font-size: 2rem;
   color: $black;
-  i {
-    transition: all 0.1s ease;
+  &:hover .icon {
+    transform: scale(1.5);
+  }
+  .icon {
+    transition: transform 0.1s ease;
   }
 }
 
@@ -190,7 +246,7 @@ button {
   height: 100%;
   background: $white;
   transform-origin: 100% 50%;
-  animation: revealRight 1s cubic-bezier(0.23,1,0.75,1) forwards;
+  animation: revealRight 1s cubic-bezier(0.23, 1, 0.75, 1) forwards;
 }
 
 @keyframes revealRight {
@@ -258,11 +314,11 @@ button {
   nav ul {
     justify-content: flex-end;
   }
-  
+
   #logo {
     font-size: 1.25rem;
   }
-  
+
   .controls {
     padding: 1.75rem 0 1.75rem 0;
   }
@@ -275,32 +331,33 @@ button {
       background: $white;
     }
   }
-  
+
   img {
     height: 60vh;
   }
-  
+
   .description {
     font-size: 1.25rem;
     margin: 1rem 0 0 0;
   }
-  
-  .previous, .next {
+
+  .previous,
+  .next {
     flex-basis: 8.33%;
   }
-  
+
   .slider-item.active .hide-mobile {
     display: block;
   }
-  
+
   .slider-item.active .show-mobile {
     display: none;
   }
-  
+
   .toggle-nav {
     display: none;
   }
-  
+
   .flex-nav ul {
     display: flex;
     flex-direction: row;
@@ -308,7 +365,7 @@ button {
     padding: 0;
     justify-content: flex-end;
   }
-  
+
   nav {
     padding: 1.75rem 0 1.75rem 0;
     ul {
@@ -325,4 +382,14 @@ button {
       }
     }
   }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
